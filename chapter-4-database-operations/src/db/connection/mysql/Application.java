@@ -11,6 +11,7 @@ import db.connection.mysql.connection.dao.DepartmentDAO;
 import db.connection.mysql.connection.dao.EmployeeDAO;
 import db.connection.mysql.connection.dao.ManagerDAO;
 import db.connection.mysql.connection.dao.SalaryDAO;
+import db.connection.mysql.connection.model.Department;
 import db.connection.mysql.connection.model.Employee;
 import db.connection.mysql.connection.model.EmployeeProfile;
 import db.connection.mysql.connection.service.DepartmentService;
@@ -76,6 +77,8 @@ public class Application {
 					break;
 				case 8:
 					// burada tüm departmanları listeleyiniz.
+					listDepartments(departmentService);
+					System.out.println();
 					break;
 				case 9:
 					draftEmployeeProfileOperations(employeeService, salaryService);
@@ -218,8 +221,19 @@ public class Application {
 	public static void listDepartments(DepartmentService departmentService) {
 		
 		// Burada tğm departmanları listeleyen ve ekrana gösteren kodu yazınız.
+
+		List<Department> departments = departmentService.allDepartments();
+
+		Iterator<Department> iterator = departments.iterator();
+
+		while (iterator.hasNext()) {
+
+			Department department = iterator.next();
+			System.out.println(department.getDeptNo() + " " + department.getName());
+		}
 	}
-	
+
+
 	public static void draftEmployeeProfileOperations(EmployeeService employeeService, SalaryService salaryService) {
 		
 		System.out.println("1- Yeni profil bilgisi kaydetmek");

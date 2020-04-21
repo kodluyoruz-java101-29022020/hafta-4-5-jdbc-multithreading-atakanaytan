@@ -4,7 +4,10 @@ public class Department {
 
 	private String name;
 	private String deptNo;
-	
+
+	public Department() {
+	}
+
 	public Department(String deptNo, String name) {
 		this.name = name;
 		this.deptNo = deptNo;

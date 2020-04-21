@@ -1,8 +1,5 @@
 package db.connection.mongo;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoDatabase;
-
 import db.connection.mongo.connection.MongoDatabaseManager;
 import db.connection.mongo.connection.MongoDbConnection;
 
