@@ -1,6 +1,9 @@
 package db.connection.mysql.connection.service;
 
 import db.connection.mysql.connection.dao.ManagerDAO;
+import db.connection.mysql.connection.model.Manager;
+
+import java.util.List;
 
 public class ManagerService {
 
@@ -11,5 +14,9 @@ public class ManagerService {
 	}
 	
 	// buraya aktif yöneticileri listeleyen bir fonksiyon yazınız.
-	
+
+	public List<Manager> getManagers(){
+
+		return this.managerDAO.loadAllActiveManagers();
+	}
 }

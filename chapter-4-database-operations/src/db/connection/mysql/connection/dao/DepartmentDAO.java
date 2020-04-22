@@ -14,7 +14,7 @@ public class DepartmentDAO {
 
 	private static final Logger logger = Logger.getLogger(DepartmentDAO.class);
 
-	
+	// Fetches all department records
 	public List<Department> getAll() {
 		
 		List<Department> departments = new ArrayList<Department>();

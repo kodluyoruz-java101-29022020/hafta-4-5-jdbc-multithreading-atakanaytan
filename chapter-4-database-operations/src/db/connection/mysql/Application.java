@@ -14,6 +14,7 @@ import db.connection.mysql.connection.dao.SalaryDAO;
 import db.connection.mysql.connection.model.Department;
 import db.connection.mysql.connection.model.Employee;
 import db.connection.mysql.connection.model.EmployeeProfile;
+import db.connection.mysql.connection.model.Manager;
 import db.connection.mysql.connection.service.DepartmentService;
 import db.connection.mysql.connection.service.EmployeeService;
 import db.connection.mysql.connection.service.ManagerService;
@@ -74,6 +75,8 @@ public class Application {
 					break;
 				case 7:
 					// burada aktif yöneticileri listeleyen bir fonksiyon yazmalısınız.
+					listActiveManagers(managerService);
+					System.out.println();
 					break;
 				case 8:
 					// burada tüm departmanları listeleyiniz.
@@ -215,7 +218,17 @@ public class Application {
 	public static void listActiveManagers(ManagerService managerService) {
 		
 		// Burada ManagerService üzerinden aktif yöneticilerin listesini çekiniz ve ekrana yazdırınız
-		
+
+		List<Manager> managers = managerService.getManagers();
+
+		Iterator<Manager> iterator = managers.iterator();
+
+		while (iterator.hasNext()) {
+
+			Manager manager = iterator.next();
+
+			System.out.println(manager);
+		}
 	}
 	
 	public static void listDepartments(DepartmentService departmentService) {
@@ -229,7 +242,7 @@ public class Application {
 		while (iterator.hasNext()) {
 
 			Department department = iterator.next();
-			System.out.println(department.getDeptNo() + " " + department.getName());
+			System.out.println(department);
 		}
 	}
 

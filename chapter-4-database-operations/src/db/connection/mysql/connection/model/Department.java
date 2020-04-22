@@ -28,5 +28,13 @@ public class Department {
 	public void setDeptNo(String deptNo) {
 		this.deptNo = deptNo;
 	}
-	
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("Department{");
+		sb.append("name='").append(name).append('\'');
+		sb.append(", deptNo='").append(deptNo).append('\'');
+		sb.append('}');
+		return sb.toString();
+	}
 }
