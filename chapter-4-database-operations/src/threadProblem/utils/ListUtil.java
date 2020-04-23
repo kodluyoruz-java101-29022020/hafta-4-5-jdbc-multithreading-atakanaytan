@@ -1,13 +1,10 @@
-package threadProblem.number;
+package threadProblem.utils;
 
-
-import java.util.Collection;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class ContinuousNumbers {
+public class ListUtil {
 
     public static List<Integer> generateContinuousNumbers(int start, int end){
 

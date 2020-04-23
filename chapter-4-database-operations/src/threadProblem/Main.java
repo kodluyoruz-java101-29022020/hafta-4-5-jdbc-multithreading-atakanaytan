@@ -1,6 +1,6 @@
 package threadProblem;
 
-import threadProblem.number.ContinuousNumbers;
+import threadProblem.utils.ListUtil;
 import threadProblem.thread.EvenOddNumbers;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int continuousNumbersStart = 156;
+        int continuousNumbersStart = 1;
         int continuousNumbersEnd   = 10000;
 
         int threadSize = 4;
@@ -30,7 +30,7 @@ public class Main {
             return;
         }
 
-        List<Integer> sequentialNumbersAsList = ContinuousNumbers.generateContinuousNumbers(continuousNumbersStart, continuousNumbersEnd);
+        List<Integer> sequentialNumbersAsList = ListUtil.generateContinuousNumbers(continuousNumbersStart, continuousNumbersEnd);
 
         ExecutorService executor = Executors.newFixedThreadPool(threadSize);
 
@@ -38,7 +38,7 @@ public class Main {
 
         for (int i=0; i<threadSize; i++) {
 
-            EvenOddNumbers evenOddNumbers = new EvenOddNumbers(ContinuousNumbers.groupedAsList(sequentialNumbersAsList,chunkSize, i));
+            EvenOddNumbers evenOddNumbers = new EvenOddNumbers(ListUtil.groupedAsList(sequentialNumbersAsList,chunkSize, i));
 
             numbers.add(evenOddNumbers);
             executor.execute((evenOddNumbers));
